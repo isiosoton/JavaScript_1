@@ -8,7 +8,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/', function (req, res) {
   console.log(req.body);
-  console.log(req.body['events'][0]['message']['id']);
+  const messageId = req.body[‘events’][0][‘message’][‘id’];
+  console.log(messageId);  
+  //console.log(req.body['events'][0]['message']['id']);
   //const data = req.body;
   //console.log("req.body",data);
   res.send('api: Hello World!');
