@@ -15,6 +15,8 @@ app.post('/', function (req, res) {
 
 (process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
 
+//test
+
 /* //課題0 
 app.get('/', function (req, res) {
   res.send('Hello World!');
