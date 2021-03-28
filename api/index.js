@@ -5,6 +5,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+
+app.post('/', function (req, res) {
+  const data = req.body;
+  console.log("req.body",data);
+  res.send('api: Hello World!');
+});
+
+(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
+
 /* //課題0 
 app.get('/', function (req, res) {
   res.send('Hello World!');
@@ -26,6 +35,7 @@ app.get('/', function (req, res) {
 });*/
 
 //課題3
+/*
 app.post('/', function (req, res) {
   //console.log(req.body);
   const data = req.body;
@@ -34,7 +44,7 @@ app.post('/', function (req, res) {
   res.send('api: Hello World!');
   //実行1:curl -X POST -H "Content-Type: application/json" -d '{"Name":"sensuikan1973", "Age":"100"}' localhost:3000/api/post
   //実行2:http://localhost:3000/api/post
-});
+});*/
 
 /*
 app.get('/', function (req, res) {  
@@ -61,5 +71,3 @@ app.get('/', function (req, res) {
     //参考2: https://techacademy.jp/magazine/19615
 });
 */
-
-(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
