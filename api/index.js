@@ -1,13 +1,12 @@
 const { request } = require('express');
 const express = require('express');
-//const express = require('request');
-//const app = express();
+const express = require('request');
+const app = express();
 const PORT = process.env.PORT || 3000;
-//app.use(express.json())
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 const request = require('request');
 
-/*
 app.post('/', function (req, res) {
   console.log(req.body);
   const messageId = req.body['events'][0]['message']['id'];
@@ -17,7 +16,6 @@ app.post('/', function (req, res) {
   //console.log("req.body",data);
   res.send('api: Hello World!');
 });
-*/
 
 request.get("https://panama.cognitiveservices.azure.com/customvision/v3.0/Prediction/827c13e4-0a7e-406d-9748-9c92e3b6ac3d/classify/iterations/Iteration1/image", {encoding: null},function(error, response, body) {
   var buffer = new Buffer.from(body);
@@ -44,7 +42,7 @@ console.log(buffer);
 });
 */
 
-//(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
+(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
 
 //test
 
