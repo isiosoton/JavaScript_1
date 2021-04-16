@@ -1,5 +1,6 @@
 const { request } = require('express');
 const express = require('express');
+const express = require('request');
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
@@ -14,6 +15,24 @@ app.post('/', function (req, res) {
   //const data = req.body;
   //console.log("req.body",data);
   res.send('api: Hello World!');
+});
+
+const options = {
+  url: `https://api.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
+  method: 'get',
+  headers: {
+     'Authorization': 'Bearer ' + accessToken,
+  },
+  json: {
+    "Prediction-Key": "45c6c20d2a9c4a6092deb74db83b8c9e",
+    "Content-Type": "application/octet-stream"
+  }
+  //encoding: null
+};
+
+request(options, function(error, response, body) {
+const buffer = new Buffer.from(body);
+console.log(buffer);
 });
 
 (process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
