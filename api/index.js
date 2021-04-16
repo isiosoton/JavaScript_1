@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-const request = require('request');
+//const request = require('request');
 
 app.post('/', function (req, res) {
   console.log(req.body);
@@ -34,7 +34,7 @@ const options = {
   //encoding: null
 };
 
-request.post(options, function(error, response, body){});
+express.post(options, function(error, response, body){});
 /*
 request(options, function(error, response, body) {
 const buffer = new Buffer.from(body);
