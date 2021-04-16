@@ -1,5 +1,3 @@
-const request = require('request');
-/*
 const { request } = require('express');
 const express = require('express');
 const express = require('request');
@@ -7,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-*/
+const request = require('request');
 
 /*
 app.post('/', function (req, res) {
