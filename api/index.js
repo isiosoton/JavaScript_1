@@ -36,7 +36,7 @@ app.post('/', function (req, res) {
         "Prediction-Key": "45c6c20d2a9c4a6092deb74db83b8c9e"
       },
       body: buffer
-    };
+    }
 
     //POSTへ実行
     request.post(options, function(error, response, body){
