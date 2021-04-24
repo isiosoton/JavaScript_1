@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//LINEからVercel
 app.post('/', function (req, res) {
   const messageId = req.body['events'][0]['message']['id'];
   console.log(messageId);
@@ -28,7 +27,7 @@ app.post('/', function (req, res) {
     console.log(buffer);
     
     //VercelからCustom Vision
-    const options = {
+    const option = {
       uri: 'https://panama.cognitiveservices.azure.com/customvision/v3.0/Prediction/827c13e4-0a7e-406d-9748-9c92e3b6ac3d/classify/iterations/Iteration1/image',
       method: 'post',
       headers: {
