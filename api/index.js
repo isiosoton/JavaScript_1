@@ -39,7 +39,7 @@ app.post('/', function (req, res) {
     }
 
     //POSTへ実行
-    request.post(options, function(error, response, body){
+    request(options, function(error, response, body){
       console.log(body);
     });
   });
