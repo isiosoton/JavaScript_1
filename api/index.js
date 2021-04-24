@@ -29,7 +29,7 @@ app.post('/', function (req, res) {
     
     //VercelからCustom Vision
     const options = {
-      uri: "https://panama.cognitiveservices.azure.com/customvision/v3.0/Prediction/827c13e4-0a7e-406d-9748-9c92e3b6ac3d/classify/iterations/Iteration1/image",
+      uri: 'https://panama.cognitiveservices.azure.com/customvision/v3.0/Prediction/827c13e4-0a7e-406d-9748-9c92e3b6ac3d/classify/iterations/Iteration1/image',
       method: 'post',
       headers: {
         'Content-Type': 'application/octet-stream',
