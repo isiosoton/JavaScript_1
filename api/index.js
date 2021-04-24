@@ -1,12 +1,14 @@
-const { request } = require('express');
+//宣言
+//const { request } = require('express');
 const express = require('express');
-const express = require('request');
+const request = require('request');
+//const express = require('request');
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-//const request = require('request');
 
+//サーバーの立ち上げ
 app.post('/', function (req, res) {
   console.log(req.body);
   const messageId = req.body['events'][0]['message']['id'];
@@ -17,24 +19,26 @@ app.post('/', function (req, res) {
   res.send('api: Hello World!');
 });
 
+//画像をバイナリデータで取得
 request.get("https://panama.cognitiveservices.azure.com/customvision/v3.0/Prediction/827c13e4-0a7e-406d-9748-9c92e3b6ac3d/classify/iterations/Iteration1/image", {encoding: null},function(error, response, body) {
-  var buffer = new Buffer.from(body);
+  const buffer = new Buffer.from(body);
   console.log(buffer);
 });
 
+//Node.jsでPOSTに利用
 const options = {
   uri: "https://panama.cognitiveservices.azure.com/customvision/v3.0/Prediction/827c13e4-0a7e-406d-9748-9c92e3b6ac3d/classify/iterations/Iteration1/image",
-  //method: 'get',
+  method: 'GET',
   headers: {
     "Content-Type": "application/octet-stream",
   },
   json: {
     "Prediction-Key": "45c6c20d2a9c4a6092deb74db83b8c9e"
-  }
-  //encoding: null
+  },
+  encoding: null
 };
 
-express.post(options, function(error, response, body){});
+request.post(options, function(error, response, body){ });
 /*
 request(options, function(error, response, body) {
 const buffer = new Buffer.from(body);
@@ -42,6 +46,7 @@ console.log(buffer);
 });
 */
 
+//モジュール
 (process.env.NOW_REGION) ? module.exports = app : app.listen(PORT); //Vercell用
 
 //test
