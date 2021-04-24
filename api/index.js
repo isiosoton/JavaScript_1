@@ -3,14 +3,14 @@ const express = require('express');
 const request = require('request');
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //LINEからVercel
 app.post('/', function (req, res) {
   const messageId = req.body['events'][0]['message']['id'];
   console.log(messageId);
-  res.send('api: Hello World!');
+  res.send('api: Hello World!');  
 
   //LINEからVercell
   const options = {
