@@ -1,7 +1,7 @@
 //宣言
 const { request } = require('express');
 const express = require('express');
-const request = require('request');
+//const request = require('request');
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
