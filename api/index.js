@@ -7,9 +7,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', function (req, res) {
-  res.send('api: Hello World!');
   const messageId = req.body['events'][0]['message']['id'];
   console.log(messageId);  
+  res.send('api: Hello World!');
 
   //LINEからVercell
   const options = {
