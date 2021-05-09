@@ -10,6 +10,7 @@ const accessToken = 'DpMVi4S6+PpktL5GhoppoXn76ERRf+Alfbz+Tl5MNb8dGJWB7ifs4fAE/n1
 
 app.post('/', function (req, res) {
   const messageId = req.body['events'][0]['message']['id'];
+  const replyToken = req.body['events'][0]['replyToken'];
   console.log(messageId);  
   res.send('api: Hello World!');
 
@@ -45,7 +46,6 @@ app.post('/', function (req, res) {
     //Costom VisionからVercel
     request(option, function(error, res, body){
       //以下記入
-      const replyToken = req.body['events'][0]['replyToken'];
       request.post(option, function(error,res,body){
         const resBody = JSON.parse(body);
         
