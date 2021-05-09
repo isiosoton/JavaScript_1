@@ -29,7 +29,7 @@ app.post('/', function (req, res) {
     console.log(buffer);
     
     //node.jsから画像を取得
-    fs.writeFileSync('./testa.jpg', buffer, 'binary');
+    //fs.writeFileSync('./testa.jpg', buffer, 'binary');
 
     //VercelからCustom Vision
     const option = {
@@ -49,7 +49,7 @@ app.post('/', function (req, res) {
         const resBody = JSON.parse(body);
 
         const messageData = {
-          "replyToken": "U4c345b6fb05bc1e9d895650be0c3b7fd" /*replyToken*/,
+          "to": "U4c345b6fb05bc1e9d895650be0c3b7fd" /*replyToken*/,
           "messages":[
             {
               "type":"text",
