@@ -61,7 +61,7 @@ app.post('/', function (req, res) {
 
         const optionsLine = {
           uri:'https://api.line.me/v2/bot/message/reply',
-          method: 'post',
+          //method: 'post',
           headers: {
             'Content-Type':'application/json',
             'Authorization':'Bearer' + accessToken,
@@ -71,8 +71,8 @@ app.post('/', function (req, res) {
 
         //VercelからLINE
         request.post(optionsLine, function(error,res,body){
-          const tagName;
-          console.log(tagName);
+          //const tagName;
+          //console.log(tagName);
         });
       });
       //console.log(body);
