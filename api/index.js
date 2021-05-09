@@ -49,7 +49,7 @@ app.post('/', function (req, res) {
         const resBody = JSON.parse(body);
 
         const messageData = {
-          "to": "U4c345b6fb05bc1e9d895650be0c3b7fd" /*replyToken*/,
+          "replyToken": "U4c345b6fb05bc1e9d895650be0c3b7fd", /*replyToken*/
           "messages":[
             {
               "type":"text",
@@ -67,7 +67,7 @@ app.post('/', function (req, res) {
           json: messageData
         }
         request.post(optionsLine, function(error,res,body){
-          console.log(optionsLine);
+          console.log(body);
         });
       });
       //console.log(body);
