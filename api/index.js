@@ -48,7 +48,7 @@ app.post('/', function (req, res) {
       request.post(option, function(error,res,body){
         const resBody = JSON.parse(body);
         const messageData = {
-          "replyToken": replyToken,
+          "replyToken": U4c345b6fb05bc1e9d895650be0c3b7fd /*replyToken*/,
           "messages":[
             {
               "type":"text",
