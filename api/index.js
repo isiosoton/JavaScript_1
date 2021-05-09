@@ -13,7 +13,6 @@ app.post('/', function (req, res) {
   console.log(messageId);  
   res.send('api: Hello World!');
 
-  //LINEからVercell
   const options = {
     uri: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
     method: 'get',
@@ -23,8 +22,9 @@ app.post('/', function (req, res) {
     encoding: null
   };
 
-  //バイナリデータに変換
+  //LINEからVercell
   request(options, function(error, res, body){
+    //バイナリデータに変換
     const buffer = new Buffer.from(body);
     //console.log(buffer);
     
@@ -42,14 +42,15 @@ app.post('/', function (req, res) {
       body: buffer
     }
 
-    //Costom VisionへPOST
+    //Costom VisionからVercel
     request(option, function(error, res, body){
       //以下記入
+      const replyToken = req.body['events'][0]['replyToken'];
       request.post(option, function(error,res,body){
         const resBody = JSON.parse(body);
-
+        
         const messageData = {
-          "replyToken": "U4c345b6fb05bc1e9d895650be0c3b7fd", /*replyToken*/
+          "replyToken": replyToken, /*replyToken*/
           "messages":[
             {
               "type":"text",
@@ -66,6 +67,8 @@ app.post('/', function (req, res) {
           },
           json: messageData
         }
+
+        //VercelからLINE
         request.post(optionsLine, function(error,res,body){
           console.log(body);
         });
