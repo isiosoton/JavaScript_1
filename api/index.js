@@ -70,7 +70,7 @@ app.post('/', function (req, res) {
 
         //VercelからLINE
         request.post(optionsLine, function(error,res,body){
-          console.log(body);
+          console.log(json);
         });
       });
       //console.log(body);
