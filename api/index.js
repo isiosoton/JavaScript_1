@@ -26,7 +26,7 @@ app.post('/', function (req, res) {
   //バイナリデータに変換
   request(options, function(error, res, body){
     const buffer = new Buffer.from(body);
-    console.log(buffer);
+    //console.log(buffer);
     
     //node.jsから画像を取得
     //fs.writeFileSync('./testa.jpg', buffer, 'binary');
@@ -66,7 +66,9 @@ app.post('/', function (req, res) {
           },
           json: messageData
         }
-        request.post(optionsLine, function(error,res,body){});
+        request.post(optionsLine, function(error,res,body){
+          console.log("OK");
+        });
       });
       //console.log(body);
     });
