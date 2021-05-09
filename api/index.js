@@ -54,13 +54,14 @@ app.post('/', function (req, res) {
           "messages":[
             {
               "type":"text",
-              "text":"OK"
+              "text":"Hello World"
             }
           ]
         }
 
         const optionsLine = {
-          uri:'https://api-data.line.me/v2/bot/message/reply',
+          uri:'https://api.line.me/v2/bot/message/reply',
+          method: 'post',
           headers: {
             'Content-Type':'application/json',
             'Authorization':'Bearer' + accessToken,
@@ -70,7 +71,8 @@ app.post('/', function (req, res) {
 
         //VercelからLINE
         request.post(optionsLine, function(error,res,body){
-          console.log(json);
+          const tagName;
+          console.log(tagName);
         });
       });
       //console.log(body);
