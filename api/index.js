@@ -24,7 +24,7 @@ app.post('/', function (req, res) {
   };
 
   //バイナリデータに変換
-  request(options, function(error, response, body){
+  request(options, function(error, res, body){
     const buffer = new Buffer.from(body);
     console.log(buffer);
     
@@ -43,12 +43,13 @@ app.post('/', function (req, res) {
     }
 
     //Costom VisionへPOST
-    request(option, function(error, response, body){
+    request(option, function(error, res, body){
       //以下記入
       request.post(option, function(error,res,body){
         const resBody = JSON.parse(body);
+
         const messageData = {
-          "replyToken": 'U4c345b6fb05bc1e9d895650be0c3b7fd' /*replyToken*/,
+          "replyToken": "U4c345b6fb05bc1e9d895650be0c3b7fd" /*replyToken*/,
           "messages":[
             {
               "type":"text",
