@@ -67,7 +67,7 @@ app.post('/', function (req, res) {
           json: messageData
         }
         request.post(optionsLine, function(error,res,body){
-          console.log("OK");
+          console.log(optionsLine);
         });
       });
       //console.log(body);
