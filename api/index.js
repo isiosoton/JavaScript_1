@@ -26,7 +26,7 @@ app.post('/', function (req, res) {
   };
 
   //LINEからVercell
-  request(options, function(error, res, body){
+  request(options, function(error, response, body){
     //バイナリデータに変換
     const buffer = new Buffer.from(body);
     console.log(buffer);
