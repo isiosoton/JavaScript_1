@@ -12,7 +12,7 @@ app.post('/', function (req, res) {
   const messageId = req.body['events'][0]['message']['id'];
   const replyToken = req.body['events'][0]['replyToken'];
   //console.log(req.body);
-  //console.log(messageId);
+  console.log(messageId);
   //console.log(replyToken);
   res.send('api: Hello World!');
 
