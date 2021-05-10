@@ -29,7 +29,7 @@ app.post('/', function (req, res) {
   request(options, function(error, res, body){
     //バイナリデータに変換
     const buffer = new Buffer.from(body);
-    //console.log(buffer);
+    console.log(buffer);
     
     //node.jsから画像を取得
     //fs.writeFileSync('./testa.jpg', buffer, 'binary');
