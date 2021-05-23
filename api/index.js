@@ -55,18 +55,18 @@ app.post('/', function (req, res) {
           return second.probability - first.probability;
       });
 
-      console.log(resBody.predictions[0]);
+      console.log(tagName[0]);
  
       const messageData = {
         "replyToken": replyToken,
         "messages":[
           {
             "type":"text",
-            "text":"これは" + resBody["predictions"][0]["tagName"] + "です"
+            "text":"これは" + tagName[0]["tagName"] + "です"
           },
           {
             "type":"text",
-            "text":"確率は" + resBody["predictions"][0]["probability"] * 100　+"%です"
+            "text":"確率は" + tagName[0]["probability"] * 100　+"%です"
           }
         ]
       }
